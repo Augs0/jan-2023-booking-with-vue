@@ -4,18 +4,18 @@ import axios from "axios";
 export const useToursStore = defineStore("tours", {
   state: () => ({
     tours: [],
-    isLoading: false
+    isLoading: false,
   }),
   actions: {
     getTours() {
       this.isLoading = true;
       axios
-        .get("https://pear-pigeon-kit.cyclic.app/api/tours")
+        .get("https://be-vue-booking.onrender.com/api/tours")
         .then(({ data: { tours } }) => {
           this.tours = tours;
         });
 
-        this.isLoading = false;
+      this.isLoading = false;
     },
   },
 });
