@@ -1,54 +1,64 @@
 <style scoped>
-h2 {
-  font-size: 1rem;
+h1 {
+  font-size: 2rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  transform: skewX(5deg);
+  margin: 20px;
 }
 
 form input,
 form select {
-  margin: 1rem;
   padding: 20px;
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 form label {
-  background-color: black;
   width: max-content;
   padding: 5px;
   font-size: 1.3rem;
 }
 
 div {
-  background-color: #c060a1;
-  max-width: 80%;
+  background-color: ghostwhite;
+  border-radius: 20px;
   margin: 1rem auto;
-  transform: skewX(-5deg);
+  color: black;
 }
 
 #booking-btn {
-  padding: 10px;
+  padding: 15px;
   margin: 10px auto;
   border-radius: 5px;
-  background-color: ghostwhite;
-  font-size: 16px;
+  background-color: #cc8dd4;
+  font-size: 18px;
   max-width: fit-content;
   cursor: pointer;
 }
 
 @media (min-width: 768px) {
-  form {
-    transform: skewX(10deg);
-  }
   div {
-    background-color: #c060a1;
     max-width: 80%;
     margin: 1rem auto;
-    transform: skewX(-10deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  div {
+    background-color: #1f1720;
+    color: ghostwhite;
+  }
+  form input,
+  form select {
+    background-color: #342c35;
+    color: ghostwhite;
+  }
+  #booking-btn {
+    background-color: #1f1720;
+    color: ghostwhite;
+    border: ghostwhite 1px solid;
   }
 }
 </style>
@@ -58,27 +68,33 @@ div {
     <h1>Welcome to Pansy Tours!</h1>
     <h2>Book a tour with one of our guides</h2>
     <div>
-      <form method="POST" @submit.prevent="submit" @submit="handleSubmit">
+      <form
+        ref="bookingForm"
+        method="POST"
+        @submit.prevent="submit"
+        @submit="handleSubmit"
+      >
         <label for="name">Name</label>
-        <input id="name" type="text" v-model="formData.name" />
+        <input
+          id="name"
+          type="text"
+          v-model="formData.name"
+          autocomplete="given-name"
+        />
         <label for="tour">Tour</label>
-        <select name="tour" id="tour" v-model="formData.tour">
+        <select
+          name="tour"
+          id="tour"
+          v-model="formData.tour"
+          value="Please select a tour"
+        >
+          <option value="Please select a tour">Please select a tour</option>
           <option
             v-for="tour in toursStore.tours"
             :key="tour.tour_id"
             :value="tour.name"
           >
             {{ tour.name }}
-          </option>
-        </select>
-        <label for="guide">Guide</label>
-        <select name="guide" id="guide" v-model="formData.guide">
-          <option
-            v-for="guide in guidesStore.guides"
-            :key="guide.guide_id"
-            :value="guide.name"
-          >
-            {{ guide.name }}
           </option>
         </select>
         <button id="booking-btn">Book your tour</button>
@@ -110,19 +126,27 @@ export default {
       formData: {
         name: "",
         tour: "",
-        guide: "",
       },
     };
   },
   methods: {
-    async submit() {
-      this.$emit("submit", this.form);
-    },
+    // async submit() {
+    //   this.$emit("submit", this.form);
+    // },
     handleSubmit() {
       axios
-        .post("https://be-vue-booking.onrender.com/api/bookings", this.formData)
+        .post("https://be-vue-booking.onrender.com/api/bookings", {
+          guest: this.formData.name,
+          tour_name: this.formData.tour,
+        })
         .then(({ data }) => {
           return data;
+        })
+        .then(() => {
+          this.$refs.bookingForm.reset();
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
   },

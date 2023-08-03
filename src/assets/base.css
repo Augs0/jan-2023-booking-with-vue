@@ -1,16 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap');
 
 :root {
-  --bg-colour: ghostwhite;
-  --text-colour: #333;
-  --link-colour: rgb(170, 21, 170);
+  --bg-colour: #fad5ff;
+  --text-colour: black;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-colour: #00005c;
+    --bg-colour: #342c35;
     --text-colour: ghostwhite;
-    --link-colour: violet;
   }
 }
 
@@ -18,7 +16,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0.5rem auto;
   position: relative;
   font-weight: normal;
 }
@@ -29,11 +26,13 @@ body {
   background: var(--bg-colour);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-family: "Tsukimi Rounded", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 20px;
+  padding: 40px;
+  margin: 20px;
 }
 
 h1 {

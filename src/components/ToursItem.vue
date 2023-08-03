@@ -1,14 +1,27 @@
 <style scoped>
 .tour-card {
   max-width: fit-content;
-  border: ghostwhite 2px solid;
+  border: solid 2px black;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .card-img {
-  max-width: 70%;
+  max-width: 100%;
 }
-.card-header {
-  font-size: 30px;
+
+@media (min-width: 768px) {
+  .card-img {
+    width: 70%;
+  }
+  .card-header {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tour-card {
+    border: ghostwhite 2px solid;
+  }
 }
 </style>
 
