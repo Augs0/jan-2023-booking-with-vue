@@ -1,17 +1,16 @@
 <style scoped>
 .tour-card {
-  max-width: fit-content;
   border: solid 2px black;
   padding: 20px;
   margin-bottom: 20px;
 }
 .card-img {
-  max-width: 100%;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .card-img {
-    width: 70%;
+    width: 35%;
   }
   .card-header {
     font-size: 30px;
@@ -40,7 +39,7 @@
           {{ tour.description }}
         </p>
         <p>Max number of people: {{ tour.max_number_of_people }}</p>
-        <p>Guide: {{ tour.guide_id }}</p>
+        <p>Guide: {{ tour.guide_name }}</p>
       </article>
     </div>
   </section>
