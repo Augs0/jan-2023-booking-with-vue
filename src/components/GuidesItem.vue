@@ -24,7 +24,7 @@
 }
 
 @media (min-width: 700px) {
-    .guides-wrapper {
+  .guides-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 0 auto;
