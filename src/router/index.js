@@ -32,6 +32,7 @@ const router = createRouter({
       path: "/guides/:guide_id",
       name: "single guide",
       component: SingleGuideView,
+      props: true,
     },
   ],
 });

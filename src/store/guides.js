@@ -17,10 +17,10 @@ export const useGuidesStore = defineStore("guides", {
           this.isLoading = false;
         });
     },
-    getSingleGuide() {
+    getSingleGuide(id) {
       // this.isLoading = true;
       axios
-        .get("https://be-vue-booking.onrender.com/api/guides/1")
+        .get(`https://be-vue-booking.onrender.com/api/guides/${id}`)
         .then(({ data: { guide } }) => {
           this.guide = guide;
           this.isLoading = false;
