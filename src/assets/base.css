@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap');
 
 :root {
-  --bg-colour: #fad5ff;
+  --bg-colour: lavenderblush;
   --text-colour: black;
+  --border-colour: #bc3e9f;
+  --active-colour: #bc3e9f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-colour: #342c35;
     --text-colour: ghostwhite;
+    --border-colour: ghostwhite;
+    --active-colour: ghostwhite;
+    --active-text: black;
   }
 }
 
@@ -37,8 +42,4 @@ body {
 
 h1 {
   font-size: 1.5rem;
-}
-
-a {
-  color: var(--link-colour);
 }
