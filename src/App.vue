@@ -26,17 +26,19 @@ nav {
   margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+nav a {
+  color: var(--text-colour);
+  border-left: 5px solid transparent;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+nav a.router-link-exact-active {
+  border-left: 5px solid var(--border-colour);
+  background: linear-gradient(var(--border-colour), ghostwhite);
+  color: var(--active-text);
 }
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
 }
 </style>
