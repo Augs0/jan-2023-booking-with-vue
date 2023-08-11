@@ -13,6 +13,7 @@ form input,
 form select {
   padding: 20px;
   font-size: 1.2rem;
+  font-family: "Tsukimi Rounded", sans-serif;
 }
 
 form label {
@@ -26,16 +27,39 @@ div {
   border-radius: 20px;
   margin: 1rem auto;
   color: black;
+  padding: 20px;
+}
+
+.alert {
+  text-align: center;
+  margin: 5px;
+}
+
+.err {
+  background-color: rgb(249, 124, 124);
+  color: black;
+}
+
+.success {
+  background-color: rgb(170, 248, 170);
+  color: black;
 }
 
 #booking-btn {
   padding: 15px;
   margin: 10px auto;
   border-radius: 5px;
-  background-color: #cc8dd4;
+  background-color: #bc3e9f;
+  color: ghostwhite;
+  font-family: "Tsukimi Rounded", sans-serif;
   font-size: 18px;
   max-width: fit-content;
   cursor: pointer;
+}
+
+#booking-btn:hover {
+  background-color: var(--text-colour);
+  color: var(--bg-colour);
 }
 
 @media (min-width: 768px) {
@@ -65,8 +89,7 @@ div {
 
 <template>
   <section>
-    <h1>Welcome to Pansy Tours!</h1>
-    <h2>Book a tour with one of our guides</h2>
+    <h1>Book a tour with one of our guides</h1>
     <div>
       <form
         ref="bookingForm"
@@ -80,6 +103,7 @@ div {
           type="text"
           v-model="formData.name"
           autocomplete="given-name"
+          required
         />
         <label for="tour">Tour</label>
         <select
@@ -87,6 +111,7 @@ div {
           id="tour"
           v-model="formData.tour"
           value="Please select a tour"
+          required
         >
           <option value="Please select a tour">Please select a tour</option>
           <option
@@ -99,6 +124,9 @@ div {
         </select>
         <button id="booking-btn">Book your tour</button>
       </form>
+      <p class="alert" ref="alert" role="alert">
+        {{ alertMsg }}
+      </p>
     </div>
   </section>
 </template>
@@ -127,12 +155,11 @@ export default {
         name: "",
         tour: "",
       },
+      tourFull: false,
+      alertMsg: "",
     };
   },
   methods: {
-    // async submit() {
-    //   this.$emit("submit", this.form);
-    // },
     handleSubmit() {
       axios
         .post("https://be-vue-booking.onrender.com/api/bookings", {
@@ -140,7 +167,13 @@ export default {
           tour_name: this.formData.tour,
         })
         .then(({ data }) => {
-          return data;
+          if (data.msg) {
+            this.handleError(data);
+          } else {
+            this.$refs.alert.classList.add("success");
+            this.alertMsg = "Booking successful";
+            return data;
+          }
         })
         .then(() => {
           this.$refs.bookingForm.reset();
@@ -148,6 +181,16 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    handleError(err) {
+      console.log(err);
+      if (err.msg === "No room on this tour") {
+        this.tourFull = true;
+        this.$refs.alert.classList.add("err");
+        this.$refs.alert.classList.remove("success");
+        this.alertMsg =
+          "Sorry, this tour is full. Please try to book another one.";
+      }
     },
   },
 };

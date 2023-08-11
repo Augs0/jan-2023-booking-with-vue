@@ -6,14 +6,16 @@
 }
 .card-img {
   width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .card-img {
-    width: 35%;
+    width: 70%;
   }
   .card-header {
-    font-size: 30px;
+    font-size: 35px;
   }
 }
 
@@ -27,11 +29,14 @@
 <template>
   <section>
     <h2>Tours</h2>
-    <div v-for="tour in toursStore.tours" :key="tour.tour_id">
+    <div v-if="isLoading">
+      <p>Loading tours...</p>
+    </div>
+    <div v-else v-for="tour in toursStore.tours" :key="tour.tour_id">
       <article class="tour-card">
         <img
           class="card-img"
-          src="https://randomuser.me/api/portraits/lego/8.jpg"
+          :src="`https://source.unsplash.com/random/?${tour.name}&orientation=landscape&content_filter=high`"
           alt="lego with mustache"
         />
         <h3 class="card-header">{{ tour.name }}</h3>
@@ -47,11 +52,14 @@
 
 <script>
 import { useToursStore } from "../store/tours";
+import { mapState } from "pinia";
 
 export default {
+  computed: {
+    ...mapState(useToursStore, ["isLoading"]),
+  },
   setup() {
     const toursStore = useToursStore();
-
     toursStore.getTours();
 
     return { toursStore };

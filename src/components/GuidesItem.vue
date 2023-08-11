@@ -41,30 +41,46 @@
 
 <template>
   <h2 id="guide-title">Guides</h2>
-  <section aria-labelledby="guide-title" class="guides-wrapper">
+  <div v-if="isLoading">
+    <p>Loading tours...</p>
+  </div>
+  <section v-else aria-labelledby="guide-title" class="guides-wrapper">
     <article
       class="guide-card"
       v-for="guide in guidesStore.guides"
-      :key="guide.guide_id"
+      :key="guide.id"
     >
       <img class="card-img" :src="guide.img" alt="" />
       <h3 class="card-header">{{ guide.name }}</h3>
       <p>Pronouns: {{ guide.pronouns }}</p>
       <p>Speaks: {{ guide.languages }}</p>
+      <p @click="viewProfile(guide.id)">View profile</p>
     </article>
   </section>
 </template>
 
 <script>
 import { useGuidesStore } from "../store/guides";
+import { mapState } from "pinia";
 
 export default {
+  computer: {
+    ...mapState(useGuidesStore, ["isLoading"]),
+  },
   setup() {
     const guidesStore = useGuidesStore();
 
     guidesStore.getGuides();
 
     return { guidesStore };
+  },
+  methods: {
+    viewProfile(guide_id) {
+      this.$router.push({
+        name: "single guide",
+        params: { guide_id: guide_id },
+      });
+    },
   },
 };
 </script>
