@@ -3,11 +3,13 @@
 <template>
   <h2 id="guide-title">{{ guidesStore.guide.name }}</h2>
   <section>
-    <img :src="guidesStore.guide.img" alt="">
-    <p>Speaks: {{ guidesStore.guide.languages  }}</p>
+    <img :src="guidesStore.guide.img" alt="" />
+    <p>Speaks: {{ guidesStore.guide.languages }}</p>
     <p>Pronouns: {{ guidesStore.guide.pronouns }}</p>
     <h3>About {{ guidesStore.guide.name }}</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, dolores?</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, dolores?
+    </p>
   </section>
 </template>
 
