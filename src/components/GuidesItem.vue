@@ -41,10 +41,7 @@
 
 <template>
   <h2 id="guide-title">Guides</h2>
-  <div v-if="isLoading">
-    <p>Loading tours...</p>
-  </div>
-  <section v-else aria-labelledby="guide-title" class="guides-wrapper">
+  <section aria-labelledby="guide-title" class="guides-wrapper">
     <article
       class="guide-card"
       v-for="guide in guidesStore.guides"
