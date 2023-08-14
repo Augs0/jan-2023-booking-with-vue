@@ -8,7 +8,7 @@
     <p>Pronouns: {{ guidesStore.guide.pronouns }}</p>
     <h3>About {{ guidesStore.guide.name }}</h3>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, dolores?
+      {{ guidesStore.guide.profile }}
     </p>
   </section>
 </template>
