@@ -7,7 +7,14 @@
   --active-colour: #bc3e9f;
 }
 
-@media (prefers-color-scheme: dark) {
+:root.dark{
+  --bg-colour: #342c35;
+  --text-colour: ghostwhite;
+  --border-colour: ghostwhite;
+  --active-colour: ghostwhite;
+}
+
+/* @media (prefers-color-scheme: dark)  {
   :root {
     --bg-colour: #342c35;
     --text-colour: ghostwhite;
@@ -15,15 +22,7 @@
     --active-colour: ghostwhite;
     --active-text: black;
   }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  position: relative;
-  font-weight: normal;
-}
+} */
 
 body {
   min-height: 100vh;
