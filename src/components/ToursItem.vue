@@ -52,12 +52,8 @@
 
 <script>
 import { useToursStore } from "../store/tours";
-import { mapState } from "pinia";
 
 export default {
-  computed: {
-    ...mapState(useToursStore, ["isLoading"]),
-  },
   setup() {
     const toursStore = useToursStore();
     toursStore.getTours();

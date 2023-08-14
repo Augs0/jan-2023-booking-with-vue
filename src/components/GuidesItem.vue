@@ -60,15 +60,11 @@
 
 <script>
 import { useGuidesStore } from "../store/guides";
-import { mapState } from "pinia";
 import GuideCardItem from "./GuideCardItem.vue";
 
 export default {
   components: {
     GuideCardItem,
-  },
-  computer: {
-    ...mapState(useGuidesStore, ["isLoading"]),
   },
   setup() {
     const guidesStore = useGuidesStore();
