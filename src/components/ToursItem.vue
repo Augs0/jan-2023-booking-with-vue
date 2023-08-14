@@ -37,7 +37,7 @@
         <img
           class="card-img"
           :src="`https://source.unsplash.com/random/?${tour.name}&orientation=landscape&content_filter=high`"
-          alt="lego with mustache"
+          :alt="`views of ${tour.name}`"
         />
         <h3 class="card-header">{{ tour.name }}</h3>
         <p>
