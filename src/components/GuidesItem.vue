@@ -32,10 +32,14 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .guide-card {
     border-bottom: solid 1px ghostwhite;
   }
+} */
+
+.dark .guide-card {
+  border-bottom: solid 1px ghostwhite;
 }
 </style>
 

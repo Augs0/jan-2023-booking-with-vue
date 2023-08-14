@@ -69,21 +69,24 @@ div {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  div {
-    background-color: #1f1720;
-    color: ghostwhite;
-  }
-  form input,
-  form select {
-    background-color: #342c35;
-    color: ghostwhite;
-  }
-  #booking-btn {
-    background-color: #1f1720;
-    color: ghostwhite;
-    border: ghostwhite 1px solid;
-  }
+.dark div {
+  background-color: #1f1720;
+  color: ghostwhite;
+}
+.dark form input,
+.dark form select {
+  background-color: #342c35;
+  color: ghostwhite;
+}
+.dark #booking-btn {
+  background-color: #1f1720;
+  color: ghostwhite;
+  border: ghostwhite 1px solid;
+}
+
+.dark #booking-btn:hover {
+  background-color: var(--text-colour);
+  color: var(--bg-colour);
 }
 </style>
 

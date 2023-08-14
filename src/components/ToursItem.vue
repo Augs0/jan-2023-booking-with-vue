@@ -11,28 +11,20 @@
 }
 
 @media (min-width: 768px) {
-  .card-img {
-    width: 70%;
-  }
   .card-header {
     font-size: 35px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .tour-card {
-    border: ghostwhite 2px solid;
-  }
+.dark .tour-card {
+  border: ghostwhite 2px solid;
 }
 </style>
 
 <template>
   <section>
     <h2>Tours</h2>
-    <div v-if="isLoading">
-      <p>Loading tours...</p>
-    </div>
-    <div v-else v-for="tour in toursStore.tours" :key="tour.tour_id">
+    <div v-for="tour in toursStore.tours" :key="tour.tour_id">
       <article class="tour-card">
         <img
           class="card-img"

@@ -18,10 +18,8 @@
   border: 6px black double;
 }
 
-@media (prefers-color-scheme: dark) {
-  .home-img {
-    border: 6px ghostwhite double;
-  }
+.dark .home-img {
+  border: 6px ghostwhite double;
 }
 
 @media (min-width: 768px) {
