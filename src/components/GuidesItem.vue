@@ -34,7 +34,8 @@
 
 <template>
   <h2 id="guide-title">Guides</h2>
-  <section aria-labelledby="guide-title" class="guides-wrapper">
+  <LoadingItem v-if="guidesStore.isLoading" />
+  <section v-else aria-labelledby="guide-title" class="guides-wrapper">
     <article
       class="guide-card"
       v-for="guide in guidesStore.guides"
@@ -54,11 +55,13 @@
 <script>
 import { useGuidesStore } from "../store/guides";
 import GuideCardItem from "./GuideCardItem.vue";
+import LoadingItem from "./LoadingItem.vue";
 
 export default {
   components: {
     GuideCardItem,
-  },
+    LoadingItem
+},
   setup() {
     const guidesStore = useGuidesStore();
 

@@ -24,7 +24,8 @@
 <template>
   <section>
     <h2>Tours</h2>
-    <div v-for="tour in toursStore.tours" :key="tour.tour_id">
+    <LoadingItem v-if="toursStore.isLoading" />
+    <div v-else v-for="tour in toursStore.tours" :key="tour.tour_id">
       <article class="tour-card">
         <img
           class="tours-card-img"
@@ -48,13 +49,14 @@
 
 <script>
 import { useToursStore } from "../store/tours";
+import LoadingItem from "./LoadingItem.vue";
 
 export default {
   setup() {
     const toursStore = useToursStore();
     toursStore.getTours();
-
     return { toursStore };
   },
+  components: { LoadingItem },
 };
 </script>
