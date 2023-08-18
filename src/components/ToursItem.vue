@@ -36,6 +36,10 @@
           {{ tour.description }}
         </p>
         <p>Max number of people: {{ tour.max_number_of_people }}</p>
+        <p>
+          Spots remaining:
+          {{ tour.max_number_of_people - tour.currently_booked }}
+        </p>
         <p>Guide: {{ tour.guide_name }}</p>
       </article>
     </div>
