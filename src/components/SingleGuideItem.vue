@@ -1,5 +1,3 @@
-<style scoped></style>
-
 <template>
   <h2 id="guide-title">{{ guidesStore.guide.name }}</h2>
   <section>

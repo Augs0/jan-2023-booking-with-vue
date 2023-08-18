@@ -2,11 +2,13 @@
 
 <template>
   <main>
+    <BackBtn />
     <Tours />
   </main>
 </template>
 
 <script setup>
+import BackBtn from "../components/BackBtn.vue";
 import LoadingItem from "../components/LoadingItem.vue";
 import { defineAsyncComponent } from "vue";
 

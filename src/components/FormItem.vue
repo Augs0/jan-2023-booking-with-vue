@@ -47,7 +47,7 @@ div {
 
 #booking-btn {
   padding: 15px;
-  margin: 10px auto;
+  margin: 25px auto;
   border-radius: 5px;
   background-color: #bc3e9f;
   color: ghostwhite;

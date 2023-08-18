@@ -18,11 +18,6 @@
   margin: 5px;
 }
 
-.card-img {
-  width: 50%;
-  border-radius: 10px;
-}
-
 @media (min-width: 700px) {
   .guides-wrapper {
     display: grid;
@@ -31,12 +26,6 @@
     grid-gap: 20px;
   }
 }
-
-/* @media (prefers-color-scheme: dark) {
-  .guide-card {
-    border-bottom: solid 1px ghostwhite;
-  }
-} */
 
 .dark .guide-card {
   border-bottom: solid 1px ghostwhite;

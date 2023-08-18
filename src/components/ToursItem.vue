@@ -4,8 +4,8 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-.card-img {
-  width: 100%;
+.tours-card-img {
+  width: 85%;
   display: block;
   margin: 0 auto;
 }
@@ -27,7 +27,7 @@
     <div v-for="tour in toursStore.tours" :key="tour.tour_id">
       <article class="tour-card">
         <img
-          class="card-img"
+          class="tours-card-img"
           :src="`https://source.unsplash.com/random/?${tour.name}&orientation=landscape&content_filter=high`"
           :alt="`views of ${tour.name}`"
         />

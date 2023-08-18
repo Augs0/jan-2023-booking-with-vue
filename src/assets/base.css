@@ -14,16 +14,6 @@
   --active-colour: ghostwhite;
 }
 
-/* @media (prefers-color-scheme: dark)  {
-  :root {
-    --bg-colour: #342c35;
-    --text-colour: ghostwhite;
-    --border-colour: ghostwhite;
-    --active-colour: ghostwhite;
-    --active-text: black;
-  }
-} */
-
 body {
   min-height: 100vh;
   color: var(--text-colour);
@@ -41,4 +31,8 @@ body {
 
 h1 {
   font-size: 1.5rem;
+}
+
+button:hover {
+    transform: rotate(-1deg) scale(1.1);
 }

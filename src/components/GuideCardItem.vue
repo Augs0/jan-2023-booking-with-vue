@@ -2,12 +2,13 @@
 .view-profile-btn {
   padding: 10px;
   font-family: "Tsukimi Rounded", sans-serif;
-  margin: 10px;
+  margin: 25px 10px;
   cursor: pointer;
 }
 
-.view-profile-btn:hover {
-  transform: rotate(-1deg) scale(1.1);
+.card-img {
+  width: 75%;
+  border-radius: 10px;
 }
 </style>
 
