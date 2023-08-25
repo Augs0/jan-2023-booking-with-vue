@@ -2,7 +2,9 @@
 .tour-card {
   border: solid 2px black;
   padding: 20px;
-  margin-bottom: 20px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 20px auto;
 }
 .tours-card-img {
   width: 85%;
@@ -14,6 +16,9 @@
   .card-header {
     font-size: 35px;
   }
+  .tour-card {
+    max-width: 60%;
+  }
 }
 
 .dark .tour-card {
@@ -22,7 +27,7 @@
 </style>
 
 <template>
-  <section>
+  <section id="tours-section">
     <h2>Tours</h2>
     <LoadingItem v-if="toursStore.isLoading" />
     <div v-else v-for="tour in toursStore.tours" :key="tour.tour_id">
@@ -44,11 +49,13 @@
         <p>Guide: {{ tour.guide_name }}</p>
       </article>
     </div>
+   <BackToTop />
   </section>
 </template>
 
 <script>
 import { useToursStore } from "../store/tours";
+import BackToTop from "./BackToTop.vue";
 import LoadingItem from "./LoadingItem.vue";
 
 export default {
@@ -57,6 +64,6 @@ export default {
     toursStore.getTours();
     return { toursStore };
   },
-  components: { LoadingItem },
+  components: { LoadingItem, BackToTop },
 };
 </script>

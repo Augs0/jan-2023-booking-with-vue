@@ -30,7 +30,9 @@ nav {
   width: 100%;
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 2rem;
+  margin: 20px 0;
+  border: var(--text-colour) solid 1px;
+  padding: 10px;
 }
 
 nav a {

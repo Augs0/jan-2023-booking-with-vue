@@ -50,17 +50,20 @@
       />
     </article>
   </section>
+  <BackToTop />
 </template>
 
 <script>
 import { useGuidesStore } from "../store/guides";
+import BackToTop from "./BackToTop.vue";
 import GuideCardItem from "./GuideCardItem.vue";
 import LoadingItem from "./LoadingItem.vue";
 
 export default {
   components: {
     GuideCardItem,
-    LoadingItem
+    LoadingItem,
+    BackToTop
 },
   setup() {
     const guidesStore = useGuidesStore();
