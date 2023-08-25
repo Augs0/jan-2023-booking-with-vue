@@ -1,41 +1,17 @@
-# booking-system
+# Learning Vue #1 - Booking System
 
-This template should help get you started developing with Vue 3 in Vite.
+For this project, I wanted to put the parts of Vue.js I had started to learn into practice by trying to build a full stack project. I created a booking system for a made up tour company with a PSQL backend and Vue.js front end.
 
-## Recommended IDE Setup
+## Features
+- You are able to book onto a tour
+- You are advised if your tour booking was successful or unsuccessful
+- You cannot book onto a full tour
+- You can read about the tours and see how many spots are left
+- You can read about each guide individually
+- You can use both a light and dark mode
+- You can use this on mobile
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## How to use this repo
+After cloning, be sure to run `npm install` to gain all dependencies.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+To run the project locally, run `npm run dev`.
