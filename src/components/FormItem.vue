@@ -135,22 +135,20 @@ div {
 </template>
 
 <script>
-import { useGuidesStore } from "../store/guides";
 import { useToursStore } from "../store/tours";
 import { useBookingsStore } from "../store/bookings";
+import { storeToRefs } from "pinia";
 import axios from "axios";
 
 export default {
   setup() {
-    const guidesStore = useGuidesStore();
     const toursStore = useToursStore();
     const bookingsStore = useBookingsStore();
-
-    guidesStore.getGuides();
+    const { bookings } = storeToRefs(bookingsStore);
     toursStore.getTours();
     bookingsStore.getBookings();
 
-    return { guidesStore, toursStore, bookingsStore };
+    return { bookings, toursStore, bookingsStore };
   },
   data() {
     return {
@@ -175,14 +173,18 @@ export default {
           } else {
             this.$refs.alert.classList.add("success");
             this.alertMsg = "Booking successful";
+            this.bookings = [...this.bookings, data.newBooking];
             return data;
           }
         })
-        .then(() => {
-          this.$refs.bookingForm.reset();
-        })
         .catch((err) => {
           console.log(err);
+        })
+        .finally(() => {
+          this.formData = { guest: "", tour_name: "" };
+          setTimeout(() => {
+            this.alertMsg = "";
+          }, 3000);
         });
     },
     handleError(err) {
