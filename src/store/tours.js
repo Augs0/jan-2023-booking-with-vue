@@ -13,11 +13,13 @@ export const useToursStore = defineStore("tours", {
         .get("https://be-vue-booking.onrender.com/api/tours")
         .then(({ data: { tours } }) => {
           this.tours = tours;
-          this.isLoading = false;
         })
         .catch((err) => {
           console.log(err);
-        });
+        })
+        .finally(() => {
+          this.isLoading = false;
+        })
     },
   },
 });
